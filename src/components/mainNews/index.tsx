@@ -11,8 +11,8 @@ export const MainNews = ({
   title,
 }: Prop) => {
   return (
-    <Link href={`/noticia/${title}`}>
-      <article className={styles.container}>
+    <article className={styles.container}>
+      <Link href={`/noticia/${title}`}>
         <Image
           src={imageUrl}
           alt={imageAlt}
@@ -26,7 +26,7 @@ export const MainNews = ({
           <h2 className={styles.title}>{title}</h2>
           <p className={styles.excerpt}>{excerpt}</p>
         </div>
-      </article>
-    </Link>
+      </Link>
+    </article>
   );
 };
