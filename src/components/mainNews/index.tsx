@@ -1,15 +1,15 @@
 import Image from "next/image";
-import { Prop } from "./type";
 import styles from "./mainNews.module.scss";
 import Link from "next/link";
+import { CardComponentProp } from "@/types/CardComponentType";
 
 export const MainNews = ({
   category,
-  excerpt,
+  description,
   imageAlt,
   imageUrl,
   title,
-}: Prop) => {
+}: CardComponentProp) => {
   return (
     <article className={styles.container}>
       <Link href={`/noticia/${title}`}>
@@ -24,7 +24,7 @@ export const MainNews = ({
         <div className={styles.overlay}>
           <span className={styles.category}>{category}</span>
           <h2 className={styles.title}>{title}</h2>
-          <p className={styles.excerpt}>{excerpt}</p>
+          <p className={styles.excerpt}>{description}</p>
         </div>
       </Link>
     </article>
