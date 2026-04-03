@@ -1,6 +1,5 @@
 type Size = "sm" | "md" | "lg";
 
-
 export type CardComponentProp = {
   title: string;
   description: string;
