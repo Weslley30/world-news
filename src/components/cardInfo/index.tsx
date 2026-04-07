@@ -2,9 +2,9 @@ import { CardComponentProp } from "@/types/CardComponentType";
 import Image from "next/image";
 
 const sizeMap = {
-  sm: "w-[300px]",
-  md: "w-[400px]",
-  lg: "w-[500px]",
+  sm: "w-[400px]",
+  md: "w-[500px]",
+  lg: "w-[600px]",
 };
 
 export const CardInfo = ({
@@ -16,8 +16,10 @@ export const CardInfo = ({
   size = "lg",
 }: CardComponentProp) => {
   return (
-    <article className={`${sizeMap[size]} border rounded overflow-hidden`}>
-      <div className="w-[100%] h-[300px] relative ">
+    <article
+      className={`${sizeMap[size]} mt-[10px] border rounded overflow-hidden`}
+    >
+      <div className="w-[100%] h-[300px] relative">
         <Image src={imageUrl} alt={imageAlt} fill />
       </div>
       <div className="px-[20px] ">

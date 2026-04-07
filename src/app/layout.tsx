@@ -20,7 +20,10 @@ export default function RootLayout({
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <header className="bg-[black] text-[white] p-[18px]">
-            <nav className="flex items-center" aria-label="Menu principal">
+            <nav
+              className="flex items-center justify-center "
+              aria-label="Menu principal"
+            >
               <h1 className="text-[16px] font-bold">
                 Portal <span className="text-[#b91e37]">Notícias</span>
               </h1>
