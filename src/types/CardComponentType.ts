@@ -1,4 +1,4 @@
-type Size = "sm" | "md" | "lg";
+type Size = "min" | "sm" | "md" | "lg";
 
 export type CardComponentProp = {
   title: string;
@@ -7,6 +7,7 @@ export type CardComponentProp = {
   imageAlt: string;
   category: string;
   size?: Size;
+  time?: string;
 };
 
 export type INews = {

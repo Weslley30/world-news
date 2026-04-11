@@ -3,7 +3,7 @@ import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/theme";
-import { rotas, SpaceHome } from "@/util/space-home";
+import { rotas, SpaceHome } from "@/util/spaceHome";
 
 export const metadata: Metadata = {
   title: "Portal Notícias",
