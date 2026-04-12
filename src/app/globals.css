@@ -1,9 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
 
 body {
   padding: 12px 80px;
 }
 
+/**
+
+versão para tailwind 3
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*/
