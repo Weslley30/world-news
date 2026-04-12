@@ -1,6 +1,5 @@
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 
-
 export type InputFormProps = {
   label: string;
   id: string;
