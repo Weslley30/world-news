@@ -9,9 +9,10 @@ export const MainNews = ({
   imageAlt,
   imageUrl,
   title,
+  size = "md",
 }: CardComponentProp) => {
   return (
-    <article className={styles.container}>
+    <article className={`${styles.container} ${styles[size]}`}>
       <Link href={`/noticia/${title}`}>
         <Image
           src={imageUrl}

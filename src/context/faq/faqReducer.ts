@@ -4,10 +4,7 @@ export const initialState: FaqState = {
   faqs: [],
 };
 
-export function faqReducer(
-  state: FaqState,
-  action: FaqAction
-): FaqState {
+export function faqReducer(state: FaqState, action: FaqAction): FaqState {
   switch (action.type) {
     case "ADD_FAQ":
       return {

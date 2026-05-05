@@ -1,11 +1,11 @@
-type Size = "min" | "sm" | "md" | "lg";
+type Size = "sm" | "md" | "lg";
 
 export type CardComponentProp = {
-  title: string;
   description: string;
   imageUrl: string;
   imageAlt: string;
-  category: string;
+  title?: string;
+  category?: string;
   size?: Size;
   time?: string;
 };
@@ -22,7 +22,12 @@ export type INews = {
   section: string;
 };
 
-export type IFilterNews = {
+export type IFilterNewsCategory = {
   infos: INews[];
   category: string;
+};
+
+export type IFilterNewsSection = {
+  infos: INews[];
+  section: string;
 };

@@ -1,6 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import { useFaq } from "@/context/faq/faqContext";
 import { Mail, User } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/buttonForm";
@@ -14,6 +15,8 @@ type ContactFormData = {
 };
 
 export default function ContactPage() {
+  const { addFaq, state } = useFaq();
+
   const {
     register,
     handleSubmit,
@@ -23,6 +26,22 @@ export default function ContactPage() {
 
   const onSubmit = async (data: ContactFormData) => {
     console.log(data);
+    const date = new Date();
+
+    const formatted = date.toLocaleString("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    addFaq({
+      id: crypto.randomUUID(),
+      question: data.message,
+      answer: "",
+      updateDate: formatted,
+    });
+    console.log("state => ", state);
     reset();
   };
 

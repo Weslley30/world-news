@@ -1,25 +1,30 @@
 import { CardInfo } from "@/components/cardInfo";
 import { NewsCarousel } from "@/components/carrosel/Carrosel";
 import { MainNews } from "@/components/mainNews";
-import { FilterNews, FindNews } from "@/util/filterNews";
+import {
+  FilterNewsForCategory,
+  FilterNewsForSection,
+  FindNews,
+} from "@/util/filterNews";
 import { getInfos } from "@/util/getInfos";
+import { ListCarouselItems } from "@/util/listCarouselItens";
 
 export const HomePage = async () => {
-  const infos = await getInfos();
-  const mainNews = FindNews({ infos: infos, category: "Tecnologia" });
-  const secondaryNews = FindNews({ infos: infos, category: "Mundo" });
-  const ListTecnology = FilterNews({ infos: infos, category: "Tecnologia" });
+  const resultInfos = await getInfos();
+  const mainNews = FindNews({ infos: resultInfos, category: "Tecnologia" });
+  const secondaryNews = FindNews({ infos: resultInfos, category: "Mundo" });
+  const ListTecnology = FilterNewsForCategory({
+    infos: resultInfos,
+    category: "Tecnologia",
+  });
+  const ListWebStory = FilterNewsForSection({
+    infos: resultInfos,
+    section: "webstory",
+  });
 
-  const carouselItems = ListTecnology.map((item) => ({
-    slug: item.slug,
-    title: item.title,
-    description: item.excerpt, // 🔥 conversão aqui
-    imageUrl: item.imageUrl,
-    imageAlt: item.imageAlt,
-    category: item.category,
-  }));
+  const itensCarouselTecnology = ListCarouselItems(ListTecnology);
 
-  console.log("ListTecnology => ", ListTecnology);
+  console.log("ListWebStory => ", ListWebStory);
   return (
     <main className="w-full min-h-screen">
       <h1>Home</h1>
@@ -29,6 +34,7 @@ export const HomePage = async () => {
         imageUrl={mainNews.imageUrl}
         imageAlt={mainNews.imageAlt}
         category={mainNews.category}
+        size="lg"
       />
       <CardInfo
         title={secondaryNews.title}
@@ -38,7 +44,19 @@ export const HomePage = async () => {
         category={secondaryNews.category}
       />
 
-      <NewsCarousel items={carouselItems} />
+      <NewsCarousel items={itensCarouselTecnology} />
+      <h2 className="text-2xl font-bold text-red-600 mb-4">WEBSTORY</h2>
+      <div className="flex gap-4">
+        {ListWebStory.map((iten) => (
+          <MainNews
+            size="sm"
+            key={iten.slug}
+            description={iten.excerpt}
+            imageUrl={iten.imageUrl}
+            imageAlt={iten.imageAlt}
+          />
+        ))}
+      </div>
     </main>
   );
 };
